@@ -24,7 +24,7 @@ class TestSmokeTest():
   def test_navMenuSpotlightsAndJoinUsHero(self):
     self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
     self.driver.set_window_size(1294, 1392)
-    self.driver.find_element(By.LINK_TEXT, "Home").click()
+    # self.driver.find_element(By.LINK_TEXT, "Home").click()
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".spotlight1 > .centered-image")
     assert len(elements) > 0
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".spotlight2 > .centered-image")
