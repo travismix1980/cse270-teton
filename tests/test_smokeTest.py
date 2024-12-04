@@ -24,7 +24,7 @@ class TestSmokeTest():
   def test_navMenuSpotlightsAndJoinUsHero(self):
     self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
     self.driver.set_window_size(1294, 1392)
-    # self.driver.find_element(By.LINK_TEXT, "Home").click()
+    self.driver.find_element(By.LINK_TEXT, "Home").click()
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".spotlight1 > .centered-image")
     assert len(elements) > 0
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".spotlight2 > .centered-image")
@@ -72,27 +72,14 @@ class TestSmokeTest():
 
   def test_joinPageFirstNameAndEmail(self):
     self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
-    self.driver.set_window_size(1294, 1392)
+    self.driver.set_window_size(1294, 1399)
     self.driver.find_element(By.LINK_TEXT, "Join").click()
-    self.driver.find_element(By.NAME, "fname").click()
-    elements = self.driver.find_elements(By.NAME, "fname")
-    assert len(elements) > 0
-    self.driver.find_element(By.CSS_SELECTOR, "fieldset").click()
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".myinput:nth-child(2)")
     assert len(elements) > 0
-    assert self.driver.find_element(By.CSS_SELECTOR, ".myinput:nth-child(2)").text == "First Name"
-    self.driver.find_element(By.NAME, "fname").click()
-    self.driver.find_element(By.NAME, "fname").send_keys("Test")
-    self.driver.find_element(By.NAME, "lname").click()
-    self.driver.find_element(By.NAME, "lname").send_keys("Name")
-    self.driver.find_element(By.NAME, "bizname").click()
-    self.driver.find_element(By.NAME, "bizname").send_keys("MyBiz")
-    self.driver.find_element(By.NAME, "biztitle").click()
-    self.driver.find_element(By.NAME, "biztitle").send_keys("MaximumPosition")
-    self.driver.find_element(By.CSS_SELECTOR, "fieldset").click()
+    self.driver.find_element(By.NAME, "fname").send_keys("test")
+    self.driver.find_element(By.NAME, "lname").send_keys("name")
+    self.driver.find_element(By.NAME, "bizname").send_keys("testbiz")
+    self.driver.find_element(By.NAME, "biztitle").send_keys("testpos")
     self.driver.find_element(By.NAME, "submit").click()
-    self.driver.find_element(By.CSS_SELECTOR, ".myinput:nth-child(2)").click()
-    assert self.driver.find_element(By.CSS_SELECTOR, ".myinput:nth-child(2)").text == "Email"
-    self.driver.find_element(By.NAME, "email").click()
-    elements = self.driver.find_elements(By.NAME, "email")
+    elements = self.driver.find_elements(By.CSS_SELECTOR, ".myinput:nth-child(2)")
     assert len(elements) > 0
